@@ -82,12 +82,12 @@ def get_parser(api_callable=None,cmd_callable=None): # this should probably be t
     argexp = ""
     
     if api_callable:
-        api_name = api_callable.__module__.split(".")[-1]
+        api_name = api_callable.__module__.split(".")[-1].replace("_","-")
         api_arguments,api_options = get_arguments_and_options(api_callable)
         assert len(api_arguments) is 0 # no mandatory arguments for class initializers
         
     if cmd_callable:
-        cmd_name = cmd_callable.func_name
+        cmd_name = cmd_callable.func_name.replace("_","-")
         cmd_arguments,cmd_options = get_arguments_and_options(cmd_callable)
         if cmd_arguments:
             arguments   = " " + " ".join( [ s[0].upper() for s in cmd_arguments ] )
