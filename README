@@ -20,4 +20,51 @@ d) Optional / keyword args in your implementor's __init__ are valid for all comm
 
 e) If a keyword arg in one of your methods has a non-None default value, it is also shown nicely in the --help dump.
 
+f) Underscores in method arguments and module names are automatically and correctly mapped to dashes in the command line, and vice versa, for a consistent experience.  Note that you can use underscores in lieu of dashes for the API and the command name in the command line.
+
 This kind of engineering makes for a completely pluggable tool that can be enhanced with practically no effort.
+
+-------------------------------------------------
+
+Here is a very basic example.  The following code:
+
+----------
+class AmazonAPI:
+    
+    @describe("access_key", "Amazon access key")
+    @describe("secret_key", "Amazon secret key")
+    def __init__(self,
+                 access_key=os.environ.get("AWS_ACCESS_KEY_ID",None),
+                 secret_key=os.environ.get("AWS_SECRET_ACCESS_KEY",None):
+        if not access_key: raise OptionValueError,"you need to specify an access key"
+        if not secret_key: raise OptionValueError,"you need to specify a secret key"
+        self.__dict__.update(locals())
+        
+    def list_regions(self,verbose=None):
+        """Lists all regions"""
+        regions = self._get_regions()
+        for r in regions: print r
+----------
+
+looks like this to the end-user when invoking help:
+
+----------
+$ bin/cloud-tool amazon list-regions --help
+Usage: cloud-tool [options...] amazon list_regions
+
+Lists all regions
+
+Options:
+  -h, --help            show this help message and exit
+
+  Options for the amazon API:
+    --access-key=ACCESS_KEY
+                        Amazon access key
+    --secret-key=SECRET_KEY
+                        Amazon secret key
+
+  Options for the list-regions command:
+    --verbose=VERBOSE
+                        Print extra output
+
+----------
