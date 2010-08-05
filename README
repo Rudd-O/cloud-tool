@@ -1,5 +1,13 @@
 This is the cloud-tool, a generic command-line client to any cloud API (though only Amazon support is being developed right now).  The final goal of this tool is to be a comprehensive command-line tool to manage any cloud without having to resort to specialized clients.
 
+
+== REQUIREMENTS ==
+
+This tool requires the boto python library (packaged as python-boto in many Linux distributions)
+
+
+== HOW IT WORKS / HOW TO DEVELOP AN API ADAPTER ==
+
 The way cloud-tool accomplishes this, is by implementing commands for each API in a separate module, and then using dynamic programming to detect the commands, parse the arguments and options, and feed them to the API implementor.
 
 1,2,3:
