@@ -20,15 +20,19 @@ That's it.  But there are more niceties for you:
 
 a) When cloud-tool runs, the first argument (the API name) maps to the module name that contains the implementor class, and the second argument (the command name) maps to a method name in an instance of the implementor class.
 
-b) The arguments and --options map to positional arguments to your implementor method / implementor __init__.  Specifically, command-line arguments after the command name map to positional arguments in your implementor method; optional/keyword arguments declared in your __init__ and method map to --command-line=arguments.
+b) The arguments and --options map to positional arguments to your implementor method / implementor __init__.  Specifically, command-line arguments after the command name map to mandatory positional arguments in your implementor method; optional/keyword arguments declared in your __init__ and method map to optional --command-line=options.
 
-c) You can decorate your method with the decorator @describe from the cloud_tool.utils module.  @describe('param','A parameter') is intelligently processed during parameter processing, in such a way that when the user types 'cloud-tool apiname commandname --help', those descriptions appear in the command line options.
+c) You can decorate your method with the decorator @describe from the cloud_tool.utils module.  @describe('param','A parameter') maps to the help text 'A parameter' for the option '--help' / mandatory argument 'PARAM' that shows up in 'cloud-tool apiname commandname --help'.
 
-d) Optional / keyword args in your implementor's __init__ are valid for all command invocations of your implementor's class.  Optional / keyword args in a specific method that implements a command in your class are only valid for command invocations of that particular command.
+d) The methods that implement API commands in your implementor class can have docstrings.  Those docstrings show up in the --help as the help description for the command itself.
 
-e) If a keyword arg in one of your methods has a non-None default value, it is also shown nicely in the --help dump.
+e) Optional / keyword args in your implementor's __init__ are valid for all command invocations of your implementor's class.  Optional / keyword args in a specific method that implements a command in your class are only valid for command invocations of that particular command.
 
-f) Underscores in method arguments and module names are automatically and correctly mapped to dashes in the command line, and vice versa, for a consistent experience.  Note that you can use underscores in lieu of dashes for the API and the command name in the command line.
+f) If a keyword arg in one of your methods has a non-None default value, the default is also shown nicely in the --help text.
+
+g) Underscores in method arguments and module names are automatically and correctly mapped to dashes in the command line, and vice versa, for a consistent experience.  Note that you can use underscores in lieu of dashes for the API and the command name in the command line.
+
+h) Methods that begin with an underscore are intelligently suppressed from the command list produced by 'cloud-tool apiname --help'.
 
 This kind of engineering makes for a completely pluggable tool that can be enhanced with practically no effort.
 
