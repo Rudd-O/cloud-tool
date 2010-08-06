@@ -16,10 +16,10 @@ def main():
     parser = utils.get_parser()
     
     if len(prelim_args) == 0:
-        apilist = utils.get_api_list()
-        parser.error("you need to specify an API as the first argument\n\nSupported APIs:\n" + "\n".join(apilist))
+        parser.error("you need to specify an API as the first argument\n\nSupported APIs:\n" + "\n".join(utils.get_api_list()))
     elif len(prelim_args) == 1:
         api = utils.lookup_api(prelim_args[0])
+        if not api: parser.error("API %s unsupported"%prelim_args[0] + "\n\nSupported APIs:\n" + "\n".join(utils.get_api_list()))
         commandlist = utils.get_command_list(api)
         parser.error("you need to specify a command name as the second argument\n\nCommands supported by the %s API:\n"%prelim_args[0] + "\n".join(commandlist))
 
@@ -44,7 +44,8 @@ def main():
     # we now discard the first two arguments as those necessarily are the api and command names
     args = args[2:]
 
-    return command(*args,**cmd_optionsdict)
+    try: return command(*args,**cmd_optionsdict)
+    except TypeError,e: parser.error(str(e))
 
 
 if __name__ == '__main__':
