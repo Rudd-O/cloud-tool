@@ -1,0 +1,21 @@
+<commands>
+        <command>
+                <name>stopVirtualMachine</name>
+                <arg required="true">id</arg>
+        </command>
+         <command>
+                <name>listVirtualMachines</name>
+        </command>
+        <command>
+                <name description="Creates a user.">createUser</name>
+                <arg required="true" description="User name">username</arg>
+                <arg required="true">password</arg>
+                <arg required="true">firstname</arg>
+                <arg required="true">lastname</arg>
+                <arg required="true">email</arg>
+                <arg required="true">accounttype</arg>
+                <arg required="false">domainid</arg>
+                <arg required="false">account</arg>
+                <arg required="false">timezone</arg>
+        </command>
+</commands>
