@@ -95,8 +95,11 @@ def get_parser(api_callable=None,cmd_callable=None): # this should probably be t
         description = cmd_callable.__doc__
        
     api_command = "%s %s"%(api_name,cmd_name)
+
+    if description: description = "\n\n" + description
+    else: description = ''
         
-    usage = basic_usage + api_command + arguments + "\n\n" + description + argexp  
+    usage = basic_usage + api_command + arguments + description + argexp
 
     parser = MyOptionParser(usage)
  
@@ -144,6 +147,8 @@ def get_command_list(api):
         cmds = []
         for cmd_name in dir(api):
             cmd = getattr(api,cmd_name)
-            if callable(cmd) and not cmd_name.startswith("_") and hasattr(cmd,'__doc__'):
-                cmds.append( "    %20s     %s"%(cmd_name.replace('_','-'),cmd.__doc__) )
+            if callable(cmd) and not cmd_name.startswith("_"):
+		if cmd.__doc__: docstring = cmd.__doc__
+		else: docstring = ''
+		cmds.append( "    %20s     %s"%(cmd_name.replace('_','-'),docstring) )
         return cmds
