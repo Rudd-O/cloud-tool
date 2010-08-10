@@ -74,12 +74,12 @@ def load_dynamic_methods():
 			elif required == 'false': required = False
 			else: raise AssertionError, "Not reached"
 			if required: arguments.append(argname)
-			else: options.append(argname)
+			options.append(argname)
 			
 			description = param.getAttribute("description").strip()
 			if description: descriptions.append( (argname,description) )
 		
-		funcparams = ["self"] + arguments + [ "%s=None"%o for o in options ]
+		funcparams = ["self"] + [ "%s=None"%o for o in options ]
 		funcparams = ", ".join(funcparams)
 		
 		code = """
@@ -87,9 +87,12 @@ def load_dynamic_methods():
 			%s
 			parms = locals()
 			del parms["self"]
+			for arg in %r:
+				if locals()[arg] is None:
+					raise TypeError, "%%s is a required option"%%arg 
 			output = self._make_request("%s",parms)
 			print output
-		"""%(name,funcparams,description,name)
+		"""%(name,funcparams,description,arguments,name)
 		
 		namespace = {}
 		exec code.strip() in namespace
