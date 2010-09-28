@@ -13,7 +13,7 @@ class CloudAPI:
 	@describe("responseformat", "Response format: xml or json")
 	def __init__(self,
 			server="127.0.0.1:8096",
-			format="xml",
+			responseformat="xml",
 			):
 		self.__dict__.update(locals())
         
