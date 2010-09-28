@@ -9,7 +9,7 @@ import sys
 import os
 import inspect
 from optparse import OptionParser, OptParseError, BadOptionError, OptionError, OptionConflictError, OptionValueError
-import cloud_tool.apis as apis
+import cloudtool.apis as apis
 
 
 def describe(name,desc):

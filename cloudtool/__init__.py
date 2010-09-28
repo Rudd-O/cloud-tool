@@ -5,9 +5,9 @@ Created on Aug 2, 2010
 '''
 
 import sys
-import cloud_tool.apis as apis
+import cloudtool.apis as apis
 apis = apis
-import cloud_tool.utils as utils
+import cloudtool.utils as utils
 
     
 def main():
