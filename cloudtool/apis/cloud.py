@@ -90,6 +90,8 @@ def load_dynamic_methods():
 			for arg in %r:
 				if locals()[arg] is None:
 					raise TypeError, "%%s is a required option"%%arg 
+			for k,v in parms.items():
+				if v is None: del parms[k]
 			output = self._make_request("%s",parms)
 			print output
 		"""%(name,funcparams,description,arguments,name)
