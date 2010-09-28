@@ -150,5 +150,5 @@ def get_command_list(api):
             if callable(cmd) and not cmd_name.startswith("_"):
 		if cmd.__doc__: docstring = cmd.__doc__
 		else: docstring = ''
-		cmds.append( "    %20s     %s"%(cmd_name.replace('_','-'),docstring) )
+		cmds.append( "    %s	%s"%(cmd_name.replace('_','-'),docstring) )
         return cmds
