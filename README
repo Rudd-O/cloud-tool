@@ -1,6 +1,24 @@
 This is the cloud-tool, a generic command-line client to any cloud API (though only Amazon support is being developed right now).  The final goal of this tool is to be a comprehensive command-line tool to manage any cloud without having to resort to specialized clients.
 
 
+== HOW TO INSTALL ==
+
+python setup.py install
+
+as root, will copy the module into your Python installation and the cloud-tool script itself directly into the scripts directory (generally /usr/local/bin, /usr/bin, or C:\Path\to\Python\Scripts).
+
+
+== HOW TO USE ==
+
+cloud-tool --help
+
+cloud-tool <apiname> --help
+
+cloud-tool <apiname> <commandname> --help
+
+cloud-tool <apiname> <commandname> [ ... parameters of the commandname in apiname ... ]
+
+
 == REQUIREMENTS ==
 
 This tool requires the boto python library (packaged as python-boto in many Linux distributions)
