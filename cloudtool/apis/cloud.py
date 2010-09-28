@@ -10,7 +10,7 @@ import xml.dom.minidom
 class CloudAPI:
     
 	@describe("server", "Management Server host name or address")
-	@describe("format", "Response format: xml or json")
+	@describe("responseformat", "Response format: xml or json")
 	def __init__(self,
 			server="127.0.0.1:8096",
 			format="xml",
