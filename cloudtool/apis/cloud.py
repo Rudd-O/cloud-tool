@@ -1,7 +1,7 @@
 '''Implements the Cloud.com API'''
 
 
-from cloud_tool.utils import describe
+from cloudtool.utils import describe
 import urllib
 import urllib2
 import os

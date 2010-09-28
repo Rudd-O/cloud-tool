@@ -12,7 +12,7 @@ The way cloud-tool accomplishes this, is by implementing commands for each API i
 
 1,2,3:
 
-1. You create a new module cloud_tool.apis.yourapi
+1. You create a new module cloudtool.apis.yourapi
 2. You implement the API in a class inside that module.  This is called the implementor class.
 3. You reference your class in a module-level variable called "implementor"
 
@@ -22,7 +22,7 @@ a) When cloud-tool runs, the first argument (the API name) maps to the module na
 
 b) The arguments and --options map to positional arguments to your implementor method / implementor __init__.  Specifically, command-line arguments after the command name map to mandatory positional arguments in your implementor method; optional/keyword arguments declared in your __init__ and method map to optional --command-line=options.
 
-c) You can decorate your method with the decorator @describe from the cloud_tool.utils module.  @describe('param','A parameter') maps to the help text 'A parameter' for the option '--help' / mandatory argument 'PARAM' that shows up in 'cloud-tool apiname commandname --help'.
+c) You can decorate your method with the decorator @describe from the cloudtool.utils module.  @describe('param','A parameter') maps to the help text 'A parameter' for the option '--help' / mandatory argument 'PARAM' that shows up in 'cloud-tool apiname commandname --help'.
 
 d) The methods that implement API commands in your implementor class can have docstrings.  Those docstrings show up in the --help as the help description for the command itself.
 

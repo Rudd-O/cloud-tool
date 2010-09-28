@@ -1,21 +1,1017 @@
 <commands>
-        <command>
-                <name>stopVirtualMachine</name>
-                <arg required="true">id</arg>
-        </command>
-         <command>
-                <name>listVirtualMachines</name>
-        </command>
-        <command>
-                <name description="Creates a user.">createUser</name>
-                <arg required="true" description="User name">username</arg>
-                <arg required="true">password</arg>
-                <arg required="true">firstname</arg>
-                <arg required="true">lastname</arg>
-                <arg required="true">email</arg>
-                <arg required="true">accounttype</arg>
-                <arg required="false">domainid</arg>
-                <arg required="false">account</arg>
-                <arg required="false">timezone</arg>
-        </command>
+<command>
+<name>createSnapshot</name>
+<arg required="true">volumeid</arg>
+<arg required="false">domainid</arg>
+<arg required="false">account</arg>
+</command>
+<command>
+<name>listPortForwardingServiceRules</name>
+<arg required="false">account</arg>
+<arg required="false">domainid</arg>
+<arg required="false">portforwardingserviceid</arg>
+<arg required="false">id</arg>
+</command>
+<command>
+<name>disableAccount</name>
+<arg required="true">account</arg>
+<arg required="true">domainid</arg>
+</command>
+<command>
+<name>listTemplatePermissions</name>
+<arg required="false">account</arg>
+<arg required="false">domainid</arg>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>updateTemplate</name>
+<arg required="true">id</arg>
+<arg required="false">name</arg>
+<arg required="false">displaytext</arg>
+<arg required="false">format</arg>
+<arg required="false">ostypeid</arg>
+<arg required="false">passwordenabled</arg>
+</command>
+<command>
+<name>registerPreallocatedLun</name>
+<arg required="true">targetiqn</arg>
+<arg required="true">portal</arg>
+<arg required="true">zoneid</arg>
+<arg required="true">disksize</arg>
+<arg required="true">lun</arg>
+<arg required="false">tags</arg>
+</command>
+<command>
+<name>listVirtualMachines</name>
+<arg required="false">id</arg>
+<arg required="false">name</arg>
+<arg required="false">state</arg>
+<arg required="false">zoneid</arg>
+<arg required="false">podid</arg>
+<arg required="false">hostid</arg>
+<arg required="false">keyword</arg>
+<arg required="false">account</arg>
+<arg required="false">domainid</arg>
+<arg required="false">page</arg>
+<arg required="false">pagesize</arg>
+</command>
+<command>
+<name>rebootVirtualMachine</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>deleteServiceOffering</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>updatePod</name>
+<arg required="true">id</arg>
+<arg required="false">name</arg>
+<arg required="false">gateway</arg>
+<arg required="false">cidr</arg>
+<arg required="false">startip</arg>
+<arg required="false">endip</arg>
+</command>
+<command>
+<name>updateDiskOffering</name>
+<arg required="true">id</arg>
+<arg required="false">name</arg>
+<arg required="false">displaytext</arg>
+<arg required="false">tags</arg>
+</command>
+<command>
+<name>listSnapshots</name>
+<arg required="false">volumeid</arg>
+<arg required="false">name</arg>
+<arg required="false">id</arg>
+<arg required="false">intervaltype</arg>
+<arg required="false">snapshottype</arg>
+<arg required="false">keyword</arg>
+<arg required="false">account</arg>
+<arg required="false">domainid</arg>
+<arg required="false">page</arg>
+<arg required="false">pagesize</arg>
+</command>
+<command>
+<name>deleteStoragePool</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>assignToLoadBalancerRule</name>
+<arg required="false">account</arg>
+<arg required="false">domainid</arg>
+<arg required="true">id</arg>
+<arg required="false">virtualmachineid</arg>
+<arg required="false">virtualmachineids</arg>
+</command>
+<command>
+<name>createVolume</name>
+<arg required="false">account</arg>
+<arg required="false">domainid</arg>
+<arg required="true">name</arg>
+<arg required="false">zoneid</arg>
+<arg required="false">diskofferingid</arg>
+<arg required="false">snapshotid</arg>
+</command>
+<command>
+<name>disableUser</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>updateVirtualMachine</name>
+<arg required="true">id</arg>
+<arg required="false">group</arg>
+<arg required="false">displayname</arg>
+<arg required="false">haenable</arg>
+</command>
+<command>
+<name>updateResourceLimit</name>
+<arg required="false">account</arg>
+<arg required="false">domainid</arg>
+<arg required="true">resourcetype</arg>
+<arg required="false">max</arg>
+</command>
+<command>
+<name>createStoragePool</name>
+<arg required="true">zoneid</arg>
+<arg required="true">name</arg>
+<arg required="true">url</arg>
+<arg required="false">podid</arg>
+<arg required="false">clusterid</arg>
+<arg required="false">tags</arg>
+<arg required="false">details</arg>
+</command>
+<command>
+<name>copyIso</name>
+<arg required="true">id</arg>
+<arg required="true">sourcezoneid</arg>
+<arg required="true">destzoneid</arg>
+</command>
+<command>
+<name>listNetworkGroups</name>
+<arg required="false">account</arg>
+<arg required="false">domainid</arg>
+<arg required="false">networkgroupname</arg>
+<arg required="false">virtualmachineid</arg>
+<arg required="false">keyword</arg>
+<arg required="false">page</arg>
+<arg required="false">pagesize</arg>
+</command>
+<command>
+<name>createZone</name>
+<arg required="true">name</arg>
+<arg required="true">dns1</arg>
+<arg required="false">dns2</arg>
+<arg required="true">internaldns1</arg>
+<arg required="false">internaldns2</arg>
+<arg required="false">vlan</arg>
+<arg required="true">guestcidraddress</arg>
+</command>
+<command>
+<name>listPortForwardingRules</name>
+<arg required="true">ipaddress</arg>
+</command>
+<command>
+<name>updateStoragePool</name>
+<arg required="true">id</arg>
+<arg required="false">tags</arg>
+</command>
+<command>
+<name>deleteZone</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>updatePortForwardingRule</name>
+<arg required="true">publicip</arg>
+<arg required="false">privateip</arg>
+<arg required="true">publicport</arg>
+<arg required="true">privateport</arg>
+<arg required="true">protocol</arg>
+<arg required="false">virtualmachineid</arg>
+</command>
+<command>
+<name>generateUsageRecords</name>
+<arg required="true">enddate</arg>
+<arg required="true">startdate</arg>
+<arg required="false">domainid</arg>
+</command>
+<command>
+<name>updateConfiguration</name>
+<arg required="true">name</arg>
+<arg required="true">value</arg>
+</command>
+<command>
+<name>startSystemVm</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>enableUser</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>deletePreallocatedLun</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>prepareHostForMaintenance</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>deleteDomain</name>
+<arg required="true">id</arg>
+<arg required="false">cleanup</arg>
+</command>
+<command>
+<name>createLoadBalancerRule</name>
+<arg required="true">name</arg>
+<arg required="false">description</arg>
+<arg required="true">publicip</arg>
+<arg required="true">publicport</arg>
+<arg required="true">privateport</arg>
+<arg required="true">algorithm</arg>
+</command>
+<command>
+<name>deletePod</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>listSystemVms</name>
+<arg required="false">id</arg>
+<arg required="false">zoneid</arg>
+<arg required="false">podid</arg>
+<arg required="false">hostid</arg>
+<arg required="false">state</arg>
+<arg required="false">name</arg>
+<arg required="false">keyword</arg>
+<arg required="false">page</arg>
+<arg required="false">pagesize</arg>
+<arg required="false">systemvmtype</arg>
+</command>
+<command>
+<name>createTemplate</name>
+<arg required="true">displaytext</arg>
+<arg required="true">name</arg>
+<arg required="false">volumeid</arg>
+<arg required="false">requireshvm</arg>
+<arg required="false">bits</arg>
+<arg required="false">passwordenabled</arg>
+<arg required="true">ostypeid</arg>
+<arg required="false">ispublic</arg>
+<arg required="false">isfeatured</arg>
+<arg required="false">snapshotid</arg>
+</command>
+<command>
+<name>stopRouter</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>deletePortForwardingServiceRule</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>createUser</name>
+<arg required="true">username</arg>
+<arg required="true">password</arg>
+<arg required="true">firstname</arg>
+<arg required="true">lastname</arg>
+<arg required="true">email</arg>
+<arg required="true">accounttype</arg>
+<arg required="false">domainid</arg>
+<arg required="false">account</arg>
+<arg required="false">timezone</arg>
+</command>
+<command>
+<name>updateZone</name>
+<arg required="true">id</arg>
+<arg required="false">name</arg>
+<arg required="false">dns1</arg>
+<arg required="false">dns2</arg>
+<arg required="false">internaldns1</arg>
+<arg required="false">internaldns2</arg>
+<arg required="false">vlan</arg>
+<arg required="false">guestcidraddress</arg>
+</command>
+<command>
+<name>deleteUser</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>deployVirtualMachine</name>
+<arg required="true">zoneid</arg>
+<arg required="true">serviceofferingid</arg>
+<arg required="false">diskofferingid</arg>
+<arg required="true">templateid</arg>
+<arg required="false">displayname</arg>
+<arg required="false">group</arg>
+<arg required="false">userdata</arg>
+<arg required="false">account</arg>
+<arg required="false">domainid</arg>
+<arg required="false">networkgrouplist</arg>
+</command>
+<command>
+<name>removePortForwardingService</name>
+<arg required="true">id</arg>
+<arg required="true">publicip</arg>
+<arg required="true">virtualmachineid</arg>
+</command>
+<command>
+<name>listSnapshotPolicies</name>
+<arg required="false">account</arg>
+<arg required="false">domainid</arg>
+<arg required="true">volumeid</arg>
+</command>
+<command>
+<name>rebootRouter</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>listPreallocatedLuns</name>
+<arg required="false">targetiqn</arg>
+<arg required="false">scope</arg>
+<arg required="false">page</arg>
+<arg required="false">pagesize</arg>
+</command>
+<command>
+<name>createPortForwardingRule</name>
+<arg required="true">ipaddress</arg>
+<arg required="true">publicport</arg>
+<arg required="true">privateport</arg>
+<arg required="true">protocol</arg>
+<arg required="true">virtualmachineid</arg>
+</command>
+<command>
+<name>changeServiceForVirtualMachine</name>
+<arg required="true">id</arg>
+<arg required="true">serviceofferingid</arg>
+</command>
+<command>
+<name>stopSystemVm</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>listOsCategories</name>
+</command>
+<command>
+<name>listDomainChildren</name>
+<arg required="true">id</arg>
+<arg required="false">name</arg>
+<arg required="false">keyword</arg>
+<arg required="false">isrecursive</arg>
+<arg required="false">page</arg>
+<arg required="false">pagesize</arg>
+</command>
+<command>
+<name>createPod</name>
+<arg required="true">name</arg>
+<arg required="true">zoneid</arg>
+<arg required="true">gateway</arg>
+<arg required="true">cidr</arg>
+<arg required="true">startip</arg>
+<arg required="false">endip</arg>
+</command>
+<command>
+<name>resetPasswordForVirtualMachine</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>registerTemplate</name>
+<arg required="true">name</arg>
+<arg required="true">displaytext</arg>
+<arg required="true">url</arg>
+<arg required="false">bits</arg>
+<arg required="false">passwordenabled</arg>
+<arg required="false">requireshvm</arg>
+<arg required="false">ispublic</arg>
+<arg required="false">isfeatured</arg>
+<arg required="true">format</arg>
+<arg required="true">ostypeid</arg>
+<arg required="true">zoneid</arg>
+</command>
+<command>
+<name>listIsos</name>
+<arg required="false">account</arg>
+<arg required="false">domainid</arg>
+<arg required="false">id</arg>
+<arg required="false">name</arg>
+<arg required="false">ispublic</arg>
+<arg required="false">isready</arg>
+<arg required="false">isofilter</arg>
+<arg required="false">bootable</arg>
+<arg required="false">keyword</arg>
+<arg required="false">page</arg>
+<arg required="false">pagesize</arg>
+<arg required="false">zoneid</arg>
+</command>
+<command>
+<name>createServiceOffering</name>
+<arg required="true">name</arg>
+<arg required="true">displaytext</arg>
+<arg required="true">cpunumber</arg>
+<arg required="true">cpuspeed</arg>
+<arg required="true">memory</arg>
+<arg required="false">storagetype</arg>
+<arg required="false">offerha</arg>
+<arg required="false">usevirtualnetwork</arg>
+<arg required="false">tags</arg>
+</command>
+<command>
+<name>cancelHostMaintenance</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>listCapacity</name>
+<arg required="false">zoneid</arg>
+<arg required="false">podid</arg>
+<arg required="false">hostid</arg>
+<arg required="false">type</arg>
+<arg required="false">page</arg>
+<arg required="false">pagesize</arg>
+</command>
+<command>
+<name>updateUser</name>
+<arg required="true">id</arg>
+<arg required="false">username</arg>
+<arg required="false">password</arg>
+<arg required="false">firstname</arg>
+<arg required="false">lastname</arg>
+<arg required="false">email</arg>
+<arg required="false">timezone</arg>
+<arg required="false">apikey</arg>
+<arg required="false">secretkey</arg>
+</command>
+<command>
+<name>updateAccount</name>
+<arg required="true">newname</arg>
+<arg required="true">account</arg>
+<arg required="true">domainid</arg>
+</command>
+<command>
+<name>listVolumes</name>
+<arg required="false">type</arg>
+<arg required="false">id</arg>
+<arg required="false">name</arg>
+<arg required="false">zoneid</arg>
+<arg required="false">podid</arg>
+<arg required="false">virtualmachineid</arg>
+<arg required="false">account</arg>
+<arg required="false">domainid</arg>
+<arg required="false">hostid</arg>
+<arg required="false">keyword</arg>
+<arg required="false">page</arg>
+<arg required="false">pagesize</arg>
+</command>
+<command>
+<name>createSnapshotPolicy</name>
+<arg required="false">domainid</arg>
+<arg required="false">account</arg>
+<arg required="true">volumeid</arg>
+<arg required="true">schedule</arg>
+<arg required="true">timezone</arg>
+<arg required="true">intervaltype</arg>
+<arg required="true">maxsnaps</arg>
+</command>
+<command>
+<name>listPortForwardingServices</name>
+<arg required="false">account</arg>
+<arg required="false">domainid</arg>
+<arg required="false">id</arg>
+<arg required="false">name</arg>
+<arg required="false">keyword</arg>
+<arg required="false">page</arg>
+<arg required="false">pagesize</arg>
+</command>
+<command>
+<name>listHosts</name>
+<arg required="false">id</arg>
+<arg required="false">name</arg>
+<arg required="false">zoneid</arg>
+<arg required="false">podid</arg>
+<arg required="false">type</arg>
+<arg required="false">keyword</arg>
+<arg required="false">state</arg>
+<arg required="false">page</arg>
+<arg required="false">pagesize</arg>
+</command>
+<command>
+<name>queryAsyncJobResult</name>
+<arg required="true">jobid</arg>
+</command>
+<command>
+<name>updateTemplatePermissions</name>
+<arg required="true">id</arg>
+<arg required="false">ispublic</arg>
+<arg required="false">isfeatured</arg>
+<arg required="false">accounts</arg>
+<arg required="false">op</arg>
+</command>
+<command>
+<name>createPortForwardingService</name>
+<arg required="false">account</arg>
+<arg required="false">domainid</arg>
+<arg required="true">name</arg>
+<arg required="false">description</arg>
+</command>
+<command>
+<name>updateServiceOffering</name>
+<arg required="true">id</arg>
+<arg required="false">name</arg>
+<arg required="false">displaytext</arg>
+<arg required="false">offerha</arg>
+<arg required="false">usevirtualnetwork</arg>
+<arg required="false">tags</arg>
+</command>
+<command>
+<name>revokeNetworkGroupIngress</name>
+<arg required="false">account</arg>
+<arg required="false">domainid</arg>
+<arg required="false">startport</arg>
+<arg required="false">endport</arg>
+<arg required="false">icmptype</arg>
+<arg required="false">icmpcode</arg>
+<arg required="false">protocol</arg>
+<arg required="true">networkgroupname</arg>
+<arg required="false">cidrlist</arg>
+<arg required="false">usernetworkgrouplist</arg>
+</command>
+<command>
+<name>listResourceLimits</name>
+<arg required="false">id</arg>
+<arg required="false">domainid</arg>
+<arg required="false">account</arg>
+<arg required="false">resourcetype</arg>
+<arg required="false">page</arg>
+<arg required="false">pagesize</arg>
+</command>
+<command>
+<name>listPods</name>
+<arg required="false">id</arg>
+<arg required="false">name</arg>
+<arg required="false">keyword</arg>
+<arg required="false">zoneid</arg>
+</command>
+<command>
+<name>listPortForwardingServicesByVm</name>
+<arg required="true">virtualmachineid</arg>
+<arg required="false">account</arg>
+<arg required="false">domainid</arg>
+<arg required="false">ipaddress</arg>
+<arg required="false">keyword</arg>
+</command>
+<command>
+<name>updateDomain</name>
+<arg required="true">id</arg>
+<arg required="false">name</arg>
+</command>
+<command>
+<name>lockUser</name>
+<arg required="false">id</arg>
+</command>
+<command>
+<name>listVlanIpRanges</name>
+<arg required="false">id</arg>
+<arg required="false">vlan</arg>
+<arg required="false">name</arg>
+<arg required="false">zoneid</arg>
+<arg required="false">account</arg>
+<arg required="false">domainid</arg>
+<arg required="false">podid</arg>
+<arg required="false">keyword</arg>
+<arg required="false">page</arg>
+<arg required="false">pagesize</arg>
+</command>
+<command>
+<name>listAsyncJobs</name>
+<arg required="false">accountid</arg>
+<arg required="false">startdate</arg>
+<arg required="false">page</arg>
+<arg required="false">pagesize</arg>
+</command>
+<command>
+<name>addHost</name>
+<arg required="true">zoneid</arg>
+<arg required="false">podid</arg>
+<arg required="false">clusterid</arg>
+<arg required="false">clustername</arg>
+<arg required="true">url</arg>
+<arg required="true">username</arg>
+<arg required="true">password</arg>
+</command>
+<command>
+<name>deleteSnapshotPolicies</name>
+<arg required="false">domainid</arg>
+<arg required="false">account</arg>
+<arg required="false">id</arg>
+<arg required="false">ids</arg>
+</command>
+<command>
+<name>createDomain</name>
+<arg required="true">name</arg>
+<arg required="false">parentdomainid</arg>
+</command>
+<command>
+<name>listDomains</name>
+<arg required="false">id</arg>
+<arg required="false">name</arg>
+<arg required="false">level</arg>
+<arg required="false">keyword</arg>
+<arg required="false">page</arg>
+<arg required="false">pagesize</arg>
+</command>
+<command>
+<name>deletePortForwardingService</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>updateIso</name>
+<arg required="true">id</arg>
+<arg required="false">name</arg>
+<arg required="false">displaytext</arg>
+<arg required="false">ostypeid</arg>
+<arg required="false">bootable</arg>
+</command>
+<command>
+<name>attachIso</name>
+<arg required="true">virtualmachineid</arg>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>listLoadBalancerRuleInstances</name>
+<arg required="true">id</arg>
+<arg required="false">applied</arg>
+</command>
+<command>
+<name>lockAccount</name>
+<arg required="true">account</arg>
+<arg required="true">domainid</arg>
+</command>
+<command>
+<name>listTemplates</name>
+<arg required="false">account</arg>
+<arg required="false">domainid</arg>
+<arg required="false">id</arg>
+<arg required="false">name</arg>
+<arg required="false">ispublic</arg>
+<arg required="false">isready</arg>
+<arg required="true">templatefilter</arg>
+<arg required="false">keyword</arg>
+<arg required="false">page</arg>
+<arg required="false">pagesize</arg>
+<arg required="false">zoneid</arg>
+</command>
+<command>
+<name>registerIso</name>
+<arg required="true">name</arg>
+<arg required="true">displaytext</arg>
+<arg required="true">url</arg>
+<arg required="false">ispublic</arg>
+<arg required="false">isfeatured</arg>
+<arg required="true">ostypeid</arg>
+<arg required="false">bootable</arg>
+<arg required="true">zoneid</arg>
+</command>
+<command>
+<name>listRouters</name>
+<arg required="false">zoneid</arg>
+<arg required="false">podid</arg>
+<arg required="false">hostid</arg>
+<arg required="false">state</arg>
+<arg required="false">name</arg>
+<arg required="false">account</arg>
+<arg required="false">domainid</arg>
+<arg required="false">keyword</arg>
+<arg required="false">page</arg>
+<arg required="false">pagesize</arg>
+</command>
+<command>
+<name>reconnectHost</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>listEvents</name>
+<arg required="false">account</arg>
+<arg required="false">domainid</arg>
+<arg required="false">type</arg>
+<arg required="false">level</arg>
+<arg required="false">startdate</arg>
+<arg required="false">enddate</arg>
+<arg required="false">entrytime</arg>
+<arg required="false">duration</arg>
+<arg required="false">keyword</arg>
+<arg required="false">page</arg>
+<arg required="false">pagesize</arg>
+</command>
+<command>
+<name>deletePortForwardingRule</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>listZones</name>
+<arg required="false">account</arg>
+<arg required="false">available</arg>
+</command>
+<command>
+<name>deleteSnapshot</name>
+<arg required="true">id</arg>
+<arg required="false">domainid</arg>
+<arg required="false">account</arg>
+</command>
+<command>
+<name>createNetworkGroup</name>
+<arg required="false">account</arg>
+<arg required="false">domainid</arg>
+<arg required="true">name</arg>
+<arg required="false">description</arg>
+</command>
+<command>
+<name>recoverVirtualMachine</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>deleteNetworkGroup</name>
+<arg required="false">account</arg>
+<arg required="false">domainid</arg>
+<arg required="true">name</arg>
+</command>
+<command>
+<name>listUsageRecords</name>
+<arg required="false">account</arg>
+<arg required="true">startdate</arg>
+<arg required="true">enddate</arg>
+<arg required="false">domainid</arg>
+<arg required="false">page</arg>
+</command>
+<command>
+<name>deleteVlanIpRange</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>detachVolume</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>listDiskOfferings</name>
+<arg required="false">domainid</arg>
+<arg required="false">id</arg>
+<arg required="false">name</arg>
+<arg required="false">keyword</arg>
+<arg required="false">page</arg>
+<arg required="false">pagesize</arg>
+</command>
+<command>
+<name>authorizeNetworkGroupIngress</name>
+<arg required="false">account</arg>
+<arg required="false">domainid</arg>
+<arg required="false">protocol</arg>
+<arg required="false">startport</arg>
+<arg required="false">endport</arg>
+<arg required="false">icmptype</arg>
+<arg required="false">icmpcode</arg>
+<arg required="true">networkgroupname</arg>
+<arg required="false">cidrlist</arg>
+<arg required="false">usernetworkgrouplist</arg>
+</command>
+<command>
+<name>listClusters</name>
+<arg required="false">id</arg>
+<arg required="false">name</arg>
+<arg required="false">podid</arg>
+<arg required="false">zoneid</arg>
+<arg required="false">page</arg>
+<arg required="false">pagesize</arg>
+</command>
+<command>
+<name>updateLoadBalancerRule</name>
+<arg required="false">name</arg>
+<arg required="false">description</arg>
+<arg required="false">privateport</arg>
+<arg required="false">algorithm</arg>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>createVlanIpRange</name>
+<arg required="false">forvirtualnetwork</arg>
+<arg required="false">vlan</arg>
+<arg required="true">gateway</arg>
+<arg required="true">netmask</arg>
+<arg required="true">zoneid</arg>
+<arg required="false">account</arg>
+<arg required="false">domainid</arg>
+<arg required="false">podid</arg>
+<arg required="true">startip</arg>
+<arg required="false">endip</arg>
+</command>
+<command>
+<name>deleteIso</name>
+<arg required="true">id</arg>
+<arg required="false">zoneid</arg>
+</command>
+<command>
+<name>disassociateIpAddress</name>
+<arg required="true">ipaddress</arg>
+</command>
+<command>
+<name>getCloudIdentifier</name>
+</command>
+<command>
+<name>addSecondaryStorage</name>
+<arg required="true">zoneid</arg>
+<arg required="true">url</arg>
+</command>
+<command>
+<name>listAlerts</name>
+<arg required="false">type</arg>
+<arg required="false">keyword</arg>
+<arg required="false">page</arg>
+<arg required="false">pagesize</arg>
+</command>
+<command>
+<name>createDiskOffering</name>
+<arg required="true">name</arg>
+<arg required="true">displaytext</arg>
+<arg required="true">disksize</arg>
+<arg required="false">ismirrored</arg>
+<arg required="false">domainid</arg>
+<arg required="false">tags</arg>
+</command>
+<command>
+<name>listPublicIpAddresses</name>
+<arg required="false">account</arg>
+<arg required="false">domainid</arg>
+<arg required="false">allocatedonly</arg>
+<arg required="false">zoneid</arg>
+<arg required="false">vlanid</arg>
+<arg required="false">ipaddress</arg>
+<arg required="false">keyword</arg>
+<arg required="false">page</arg>
+<arg required="false">pagesize</arg>
+<arg required="false">forvirtualnetwork</arg>
+</command>
+<command>
+<name>deleteVolume</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>deleteHost</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>attachVolume</name>
+<arg required="true">id</arg>
+<arg required="true">virtualmachineid</arg>
+<arg required="false">deviceid</arg>
+</command>
+<command>
+<name>rebootSystemVm</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>deleteLoadBalancerRule</name>
+<arg required="false">account</arg>
+<arg required="false">domainid</arg>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>listAccounts</name>
+<arg required="false">id</arg>
+<arg required="false">name</arg>
+<arg required="false">accounttype</arg>
+<arg required="false">state</arg>
+<arg required="false">iscleanuprequired</arg>
+<arg required="false">keyword</arg>
+<arg required="false">account</arg>
+<arg required="false">domainid</arg>
+<arg required="false">page</arg>
+<arg required="false">pagesize</arg>
+</command>
+<command>
+<name>listOsTypes</name>
+</command>
+<command>
+<name>startVirtualMachine</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>listUsers</name>
+<arg required="false">id</arg>
+<arg required="false">username</arg>
+<arg required="false">account</arg>
+<arg required="false">domainid</arg>
+<arg required="false">accounttype</arg>
+<arg required="false">state</arg>
+<arg required="false">keyword</arg>
+<arg required="false">page</arg>
+<arg required="false">pagesize</arg>
+</command>
+<command>
+<name>deleteDiskOffering</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>listLoadBalancerRules</name>
+<arg required="false">account</arg>
+<arg required="false">id</arg>
+<arg required="false">domainid</arg>
+<arg required="false">publicip</arg>
+<arg required="false">name</arg>
+<arg required="false">keyword</arg>
+<arg required="false">virtualmachineid</arg>
+<arg required="false">page</arg>
+<arg required="false">pagesize</arg>
+</command>
+<command>
+<name>detachIso</name>
+<arg required="true">virtualmachineid</arg>
+</command>
+<command>
+<name>copyTemplate</name>
+<arg required="true">id</arg>
+<arg required="true">sourcezoneid</arg>
+<arg required="true">destzoneid</arg>
+</command>
+<command>
+<name>removeFromLoadBalancerRule</name>
+<arg required="false">domainid</arg>
+<arg required="true">id</arg>
+<arg required="false">virtualmachineid</arg>
+<arg required="false">virtualmachineids</arg>
+</command>
+<command>
+<name>associateIpAddress</name>
+<arg required="false">account</arg>
+<arg required="false">domainid</arg>
+<arg required="true">zoneid</arg>
+</command>
+<command>
+<name>listStoragePools</name>
+<arg required="false">name</arg>
+<arg required="false">zoneid</arg>
+<arg required="false">podid</arg>
+<arg required="false">ipaddress</arg>
+<arg required="false">path</arg>
+<arg required="false">keyword</arg>
+<arg required="false">page</arg>
+<arg required="false">pagesize</arg>
+</command>
+<command>
+<name>createPortForwardingServiceRule</name>
+<arg required="true">publicport</arg>
+<arg required="true">privateport</arg>
+<arg required="false">protocol</arg>
+<arg required="true">portforwardingserviceid</arg>
+</command>
+<command>
+<name>listServiceOfferings</name>
+<arg required="false">id</arg>
+<arg required="false">name</arg>
+<arg required="false">virtualmachineid</arg>
+<arg required="false">keyword</arg>
+<arg required="false">page</arg>
+<arg required="false">pagesize</arg>
+</command>
+<command>
+<name>deleteTemplate</name>
+<arg required="true">id</arg>
+<arg required="false">zoneid</arg>
+</command>
+<command>
+<name>updateHost</name>
+<arg required="true">id</arg>
+<arg required="false">oscategoryid</arg>
+</command>
+<command>
+<name>registerUserKeys</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>assignPortForwardingService</name>
+<arg required="false">id</arg>
+<arg required="false">ids</arg>
+<arg required="true">publicip</arg>
+<arg required="true">virtualmachineid</arg>
+</command>
+<command>
+<name>enableAccount</name>
+<arg required="true">account</arg>
+<arg required="true">domainid</arg>
+</command>
+<command>
+<name>destroyVirtualMachine</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>startRouter</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>stopVirtualMachine</name>
+<arg required="true">id</arg>
+</command>
+<command>
+<name>listConfigurations</name>
+<arg required="false">name</arg>
+<arg required="false">category</arg>
+<arg required="false">keyword</arg>
+<arg required="false">page</arg>
+<arg required="false">pagesize</arg>
+</command>
 </commands>

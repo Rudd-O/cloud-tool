@@ -3,7 +3,7 @@
 
 import boto.ec2
 import os
-from cloud_tool.utils import describe,OptionConflictError,OptionValueError
+from cloudtool.utils import describe,OptionConflictError,OptionValueError
 
 class AmazonAPI:
     
