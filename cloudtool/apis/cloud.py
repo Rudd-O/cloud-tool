@@ -109,3 +109,5 @@ def load_dynamic_methods():
 for name,meth in load_dynamic_methods(): setattr(CloudAPI,name,meth)
 
 implementor = CloudAPI
+
+del name,meth,describe,xml,urllib2,load_dynamic_methods,urllib,os
