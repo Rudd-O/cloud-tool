@@ -52,6 +52,8 @@ g) Underscores in method arguments and module names are automatically and correc
 
 h) Methods that begin with an underscore are intelligently suppressed from the command list produced by 'cloud-tool apiname --help'.
 
+i) Raising TypeError, "error text" in your implemented method will cause the command-line tool to print an usage error "error text".  Rationale: TypeError is automatically raised by Python itself, if the command-line shell for your API function calls your API function with the wrong number of parameters.
+
 This kind of engineering makes for a completely pluggable tool that can be enhanced with practically no effort.
 
 -------------------------------------------------
