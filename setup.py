@@ -12,5 +12,6 @@ setup(
     author_email='rudd-o@rudd-o.com',
     url='http://github.com/Rudd-O/cloud-tool',
     packages=['cloudtool','cloudapis'],
+    package_data={'cloudapis':['*.xml']},
     scripts=['bin/cloud-tool'],
 )
