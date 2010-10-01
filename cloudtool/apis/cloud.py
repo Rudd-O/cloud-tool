@@ -30,7 +30,7 @@ class CloudAPI:
 		
 		if not parameters: parameters = {}
 		parameters["command"] = command
-		parameters["response"] = self.format
+		parameters["response"] = self.responseformat
 		querystring = urllib.urlencode(parameters)
 		url += querystring
 		
@@ -110,4 +110,4 @@ for name,meth in load_dynamic_methods(): setattr(CloudAPI,name,meth)
 
 implementor = CloudAPI
 
-del name,meth,describe,xml,urllib2,load_dynamic_methods,urllib,os
+del name,meth,describe,load_dynamic_methods
