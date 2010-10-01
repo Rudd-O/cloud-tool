@@ -9,7 +9,7 @@ import sys
 import os
 import inspect
 from optparse import OptionParser, OptParseError, BadOptionError, OptionError, OptionConflictError, OptionValueError
-import cloudtool.apis as apis
+import cloudapis as apis
 
 
 def describe(name,desc):
@@ -125,14 +125,6 @@ def get_parser(api_callable=None,cmd_callable=None): # this should probably be t
 def lookup_command_in_api(api,command_name):
     command = getattr(api,command_name.replace("-","_"),None)
     return command
-
-def lookup_api(api_name):
-    api = None
-    matchingapi = [ x for x in apis.get_all_apis() if api_name.replace("-","_") == x.__name__.split(".")[-1] ]
-    if not matchingapi: api = None
-    else: api = matchingapi[0]
-    if api: api = getattr(api,"implementor")
-    return api
 
 def get_api_list():
         apilist = []

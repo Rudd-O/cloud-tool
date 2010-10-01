@@ -30,7 +30,7 @@ The way cloud-tool accomplishes this, is by implementing commands for each API i
 
 1,2,3:
 
-1. You create a new module cloudtool.apis.yourapi
+1. You create a new module cloudapis.yourapi
 2. You implement the API in a class inside that module.  This is called the implementor class.
 3. You reference your class in a module-level variable called "implementor"
 
