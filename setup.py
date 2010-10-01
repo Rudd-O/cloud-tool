@@ -11,6 +11,6 @@ setup(
     author='Manuel Amador',
     author_email='rudd-o@rudd-o.com',
     url='http://github.com/Rudd-O/cloud-tool',
-    packages=['cloudtool'],
+    packages=['cloudtool','cloudtool.apis'],
     scripts=['bin/cloud-tool'],
 )
