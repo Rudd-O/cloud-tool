@@ -105,19 +105,52 @@ def get_parser(api_callable=None,cmd_callable=None): # this should probably be t
  
     group = parser.add_option_group("General options")
     group.add_option('-v', '--verbose', dest="verbose", help="Print extra output")
-    
+
+    # now we need to derive the short options.  we initialize the known fixed longopts and shortopts
+    longopts = [ '--verbose' ]
+
+    # we add the known long options, sorted and grouped to guarantee a stable short opt set regardless of order
+    if api_callable and api_options:
+        longopts += sorted([ x[0][0] for x in api_options ])
+    if cmd_callable and cmd_options:
+        longopts += sorted([ x[0][0] for x in cmd_options ])
+
+    # we use this function to derive a suitable short option and remember the already-used short options
+    def derive_shortopt(longopt,usedopts):
+        """longopt begins with a dash"""
+        shortopt = None
+        for x in xrange(2,10000):
+            try: shortopt = "-" + longopt[x]
+            except IndexError:
+                shortopt = None
+                break
+            if shortopt in usedopts: continue
+            usedopts.append(shortopt)
+            break
+        return shortopt
+
+    # now we loop through the long options and assign a suitable short option, saving the short option for later use
+    long_to_short = {}
+    alreadyusedshorts = []
+    for longopt in longopts:
+        long_to_short[longopt] = derive_shortopt(longopt,alreadyusedshorts)
+
     parser.api_dests = []
     if api_callable and api_options:
         group = parser.add_option_group("Options for the %s API"%api_name)
         for a in api_options:
-            group.add_option(*a[0],**a[1])
+            shortopt = long_to_short[a[0][0]]
+            if shortopt: group.add_option(shortopt,a[0][0],**a[1])
+            else: group.add_option(a[0][0],**a[1])
             parser.api_dests.append(a[1]["dest"])
  
     parser.cmd_dests = []
     if cmd_callable and cmd_options:
         group = parser.add_option_group("Options for the %s command"%cmd_name)
         for a in cmd_options:
-            group.add_option(*a[0],**a[1])
+            shortopt = long_to_short[a[0][0]]
+            if shortopt: group.add_option(shortopt,a[0][0],**a[1])
+            else: group.add_option(a[0][0],**a[1])
             parser.cmd_dests.append(a[1]["dest"])
  
     return parser
